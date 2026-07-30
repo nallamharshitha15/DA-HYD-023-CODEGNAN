@@ -1,4 +1,4 @@
-'''#multiassignment
+#multiassignment
 
 name,age,place='sree',22,'warangal'
 print("info:", name,age,place,sep='-->')
@@ -99,7 +99,7 @@ print(type(img))
 #a=int(img) #Type error #for float also Type error 
 #print(a)
 b=bool(img)
-print(b)'''
+print(b)
 
 
 x=float(bool(int(45)))
