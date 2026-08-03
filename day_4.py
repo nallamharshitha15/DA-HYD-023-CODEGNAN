@@ -68,6 +68,31 @@ syntax :
     else:
         statement(s)...
         '''
+
+marks=int(input("enter the marks:"))
+if(marks>0 and marks<=100):
+        if marks>90: 
+                  print("A",marks)
+else:
+        if(marks>80 and marks<90):
+                print("B",marks)
+        else:
+                if(marks>70 and marks<80):
+                        print("C",marks)
+                else:
+                        
+                        if(marks>60 and marks<70):
+                                
+                                print("D",marks)
+                        else:
+                                
+                                if(marks>50 and marks<60):
+                                        print("E",marks)
+                                else:
+                                     print("Fail",marks)
+
+'''
+
 marks=int(input("enter the marks:"))
     
 if (marks>90 and marks<100):
@@ -78,7 +103,7 @@ elif (marks>80 and  marks<89):
 elif(marks>70 and marks<79):
         print("C")
 else:
-    print("False")
+    print("False")'''
 
 
 
