@@ -86,8 +86,9 @@ print(d)
 e=name.title()
 print(e)
 
-
-
+#TASK:slice,striding
+#Task:A -Z
+#use loops and strings to return A-Z same line
 
 
 
