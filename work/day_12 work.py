@@ -4,16 +4,17 @@ name=input("enter the name:")
 method=[name.upper(),name.lower(),name.title(),name.capitalize(),name.swapcase()]
 for methods in method:
     b=name.upper()
-    print(b)
+    print('UPEER',":",b)
     c=name.lower()
-    print(c)
+    print('LOWER',":",c)
     d=name.title()
-    print(d)
+    print('TITLE',":",d)
     e=name.capitalize()
-    print(e)
+    print('CAPITALIZE',":",e)
     f=name.swapcase()
-    print(f)
+    print('SWAPCASE',":",f)
     break
+    
 print('PYTHON IS FUN'.isupper())
 print('python is fun'.islower())
 print('python is fun'.istitle())
@@ -28,10 +29,10 @@ elif name.istitle():
 else:
     print('null')
 
-
+'''
 '''
 #task2
-'''
+
 a=input("enter the string:")
 while a!="exit":
     if a.isalnum():
@@ -42,10 +43,12 @@ while a!="exit":
         print("the username begins with character")
     if a.isascii():
         print('it is ascii value')
+    if not a.isalnum():
+        print("does not contain only letters and numbers")
     else:
-        print("null")
+        print("validition messages")
     a=input("enter the string:")
-    '''
+ '''   
 
 '''->enter the string:100student
 the username contains only letters and numbers
@@ -56,25 +59,30 @@ valid python identifier
 the username begins with character
 it is ascii value
 
-
-#task3
 '''
+#task3
+
 '''
 student_name,marks=map(int,input("enter the student name:").split(','))
 while student_name,marks>3:
     if marks>80:
         print(marks.center(),'A')
         print(marks.ljust()
-    
+  '''  
 '''
+print("=" * 50)
+print("STUDENT REPORT".center(50))
+print("=" * 50)
 
-print("-" * 80)
-print("STUDENT REPORT".center(80))
-print("-" * 80)
+print(f"{'Name'.ljust(20)} {'Marks'.center(10)} {'Grade'.rjust(15)}")
 
 for i in range(3):
-    student_name = input("Enter the name: ")
-    marks = int(input("Enter the marks: "))
+    student_name, marks = input("Enter name and marks: ").split()
+    marks = int(marks)
+
+    if marks < 0 or marks > 100:
+        print("Invalid marks")
+        continue
 
     if marks >= 80 and marks <= 100:
         grade = "A Grade"
@@ -86,20 +94,45 @@ for i in range(3):
         grade = "Fail"
 
     print(f"{student_name.ljust(20)} {str(marks).center(10)} {grade.rjust(15)}")
-
-
+'''
 
 
 
      
 
-'''
+
 #Task 4
 
-name=["python class 10"]
-for i in name:
-    print(i.count(i))
-''' 
+t = input("enter the text: ")
+
+Letters = 0
+Digit = 0
+Spaces = 0
+Printable = 0
+
+for i in t:
+    if i.isalpha():
+        Letters += 1
+
+    if i.isdigit():
+        Digit += 1
+
+    if i.isspace():
+        Spaces += 1
+
+    if i.isprintable():
+        Printable += 1
+
+print("Letters :", Letters)
+print("Digits :", Digit)
+print("Spaces :", Spaces)
+print("Printable :", Printable)
+print("Lowercase :", t.islower())
+print("Uppercase :", t.isupper())
+print("Title Case :", t.istitle())
+        
+        
+
 
 
     
