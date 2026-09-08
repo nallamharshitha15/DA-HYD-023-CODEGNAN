@@ -1,0 +1,28 @@
+DATA ANALYST BATCH
+ATTENDANCE & PERFORMANCE REPORT
+================================
+
+Report Date: 05-09-2026
+
+Student ID   : 101
+Student Name : sree
+Batch        : Data Analyst
+
+ATTENDANCE
+Total Classes: 30
+Attended Classes: 25
+Absent Classes: 5
+Attendance Percentage: 83.33%
+
+SUBJECT PERFORMANCE
+Python: 78/100 -> 78.00%
+MySQL: 98/100 -> 98.00%
+Power BI: 78/100 -> 78.00%
+Total Marks: 254/300
+Average Score: 84.67%
+Strongest Subject: MySQL (98.00%)
+Weakest Subject: Python (78.00%)
+Performance: Very Good
+
+--------------------------------
+
