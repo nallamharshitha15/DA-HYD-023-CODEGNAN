@@ -1,0 +1,45 @@
+1->create table student(sid int primary key,sname varchar(20),age int,city varchar(10));
+
+2->create table employee(eid int primary key,ename varchar(20) NOT NULL,salary bigint,email varchar(20) UNIQUE);
+
+3->create table department(did int primary key,ename varchar(20) UNIQUE,location varchar(20));
+
+4->create table product(pid int primary key,pname varchar(20) UNIQUE,price float check (price>0),quantity float check (quantity>=0));
+
+5->create table customer(customer_id int primary key);
+->create table order(order_id int primary key);
+
+6->alter table student add  email varchar(20);
+
+7->alter table employee add phone int UNIQUE;
+
+8->alter table product modify pname varchar(50);
+
+9->alter table student rename sname to student_name;
+
+10->alter table employee add address varchar(20);
+->alter table employee drop column address;
+
+11->alter table student modify column sid int;
+  ->alter tBLE student drop primary key;
+  ->alter table student modify column sid int primary key;
+
+12->alter table employee add u_email UNIQUE(email);
+
+13->alter table employee add constraint check_salary check(salary>1000);
+
+14->
+
+15->alter table student add constraint check_age check(18>=age<=60);
+
+16->alter table employee add pk_employee int primary key;
+   ->alter table employee drop primary key;
+   
+17->  alter table student add uk_student_email varchar(20) ;  
+  ->alter table student add constraint u_email UNIQUE(uk_student_email);
+  ->
+
+18->
+
+19->  alter table product add chk_product_price int;
+  ->alter table product add constraint check_chk_product_price check(chk_product_price>0);
