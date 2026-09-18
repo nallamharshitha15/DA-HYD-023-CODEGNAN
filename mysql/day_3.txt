@@ -1,0 +1,1 @@
+create table employee(eid int,ename varchar(20),did int,foreign key(did) references department(did));

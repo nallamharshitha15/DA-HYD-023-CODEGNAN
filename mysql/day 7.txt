@@ -1,0 +1,127 @@
+Topic: clauses
+
+CREATE TABLE Emp
+(
+    empid INT PRIMARY KEY,
+    ename VARCHAR(30),
+    gender VARCHAR(10),
+    dept VARCHAR(20),
+    job VARCHAR(20),
+    sal DECIMAL(10,2),
+    city VARCHAR(20),
+    age INT
+);
+
+INSERT INTO Emp VALUES
+(101,'Ravi','Male','IT','Developer',55000,'Hyderabad',25),
+(102,'Sita','Female','HR','HR Executive',40000,'Chennai',28),
+(103,'Arjun','Male','IT','Tester',45000,'Bangalore',26),
+(104,'Priya','Female','Finance','Accountant',60000,'Hyderabad',30),
+(105,'Kiran','Male','Sales','Sales Executive',35000,'Mumbai',24),
+(106,'Anjali','Female','IT','Developer',70000,'Hyderabad',29),
+(107,'Rahul','Male','HR','Manager',65000,'Delhi',35),
+(108,'Sneha','Female','Sales','Sales Executive',38000,'Mumbai',27),
+(109,'Vijay','Male','Finance','Manager',80000,'Chennai',40),
+(110,'Divya','Female','IT','Developer',75000,'Bangalore',31),
+(111,'Ajay','Male','IT','Developer',52000,'Hyderabad',27),
+(112,'Pooja','Female','HR','HR Executive',42000,'Delhi',26),
+(113,'Manoj','Male','Sales','Manager',68000,'Mumbai',36),
+(114,'Neha','Female','Finance','Accountant',58000,'Hyderabad',29),
+(115,'Karthik','Male','IT','Tester',48000,'Bangalore',25),
+(116,'Meena','Female','Sales','Sales Executive',39000,'Chennai',28),
+(117,'Surya','Male','Finance','Accountant',61000,'Hyderabad',33),
+(118,'Lavanya','Female','IT','Developer',72000,'Hyderabad',30),
+(119,'Ramesh','Male','HR','Manager',67000,'Delhi',38),
+(120,'Keerthi','Female','Sales','Manager',69000,'Mumbai',34);
+
+questions:
+1.Display the total salary of employees in each department.
+2.Display the number of employees in each department.
+3.Display the average salary of employees in each department.
+4.Display the maximum salary in each department.
+5.Display the minimum salary in each department.
+6.Display the total number of employees based on gender.
+7.Display the average salary of employees based on gender.
+8.Display the number of employees for each job role.
+9.Display the total salary for each department and job.
+10.Display the number of employees in each city.
+11.Display departments having more than 5 employees.
+12.Display departments whose average salary is greater than 50000.
+13.Display job roles where the maximum salary is greater than 80000.
+14.Display cities having more than 3 employees.
+15.Display genders whose total salary is greater than 200000.
+16.Display departments where the minimum salary is greater than 30000.
+17.Display job roles having at least 2 employees.
+18.Display departments where the total salary is less than 300000.
+19.Display cities where the average age is greater than 30.
+20.Display departments where the maximum salary is less than 70000.
+21.Display all employee details sorted by salary in ascending order.
+22.Display all employee details sorted by salary in descending order.
+23.Display employees sorted by department in ascending order.
+24.Display employees sorted by department (ascending) and salary (descending).
+25.Display employees sorted by city and employee name.
+26.Display employees sorted by age from youngest to oldest.
+27.Display employees sorted by age from oldest to youngest.
+28.Display employees sorted by gender and then salary in descending order.
+29.Display employees sorted by job, department, and salary.
+30.Display employees sorted by department (ascending), job (ascending), and employee name (ascending).
+
+
+QURIES:
+
+1->select dept,sum(sal) from emp group by dept;
+2->select dept,count(*) from emp group by  dept;
+3->select dept,avg(sal) from emp group by dept;
+4->select dept,max(sal) from emp group by dept;
+5->select dept,min(sal) from emp group by dept;
+6->select gender,count(*) from emp group by gender;
+7->select gender,avg(sal) from emp group by gender;
+8->select job,count(*) from emp group by job;
+9->select job,sum(sal) from emp group by job;
+10->select city,count(*) from emp group by city;
+11->select dept,count(*) from emp group by dept having count(*)>5;
+12->select dept,avg(sal) from emp group by dept having avg(sal)>50000;
+13->select job,max(sal) from  emp group by job having max(sal)>=80000;
+14->select city,count(*)from emp group by city having count(*)>3;
+15->select gender,sum(sal) from emp group by gender having sum(sal)>200000;
+16->select dept,min(sal) from emp group by dept having min(sal)>30000;
+17->select job,count(*)from emp group by job having count(*)<=3;
+18->select dept,sum(sal) from emp group by dept having sum(sal)<300000;
+19->select city,avg(age) from emp group by city having avg(age)>30;
+20->select dept,max(sal) from emp group by dept having max(sal)<70000;
+21->select *from emp order by sal asc;
+22->select *from emp order by sal desc;
+23->select *from emp order by dept asc;
+24->select*from emp order by dept asc , sal desc;
+25->select *from emp order by city ,ename;
+26->select *from emp order by age asc;
+27->select *from emp order by age desc;
+28->select *from emp order by gender,sal desc;
+29->select *from emp order by job,dept,sal;
+30->select*from emp order by dept,job,ename asc;
+
+
+
+31.Display each department's total salary and sort the result by total salary in descending order.
+32.Display departments having more than 3 employees and sort them by employee count in descending order.
+33.Display each job role's average salary where the average salary is greater than 45000 and sort by average salary.
+34.Display cities having more than 2 employees and sort by city name.
+35.Display departments and their maximum salary where the maximum salary is greater than 60000 and sort by maximum salary.
+36.Display genders and total salary where the total salary is greater than 100000 and sort by total salary.
+37.Display departments and employee count where the count is at least 4 and sort alphabetically by department.
+38.Display department-wise average salary and sort first by department, then by average salary in descending order.
+39.Display job-wise minimum salary where the minimum salary is greater than 25000 and sort by minimum salary.
+40.Display city-wise employee count where the count is greater than 1 and sort by employee count in descending order.
+
+31->select dept,sum(sal) from emp group by dept order by sum(sal) desc;
+32->select dept,count(*)from emp group by dept having count(*)>3 order by count(*) desc;
+33->select job,avg(sal)from emp group by job having avg(sal)>45000 order by avg(sal);
+34->select city,count(*)from emp group by city having count(*)>2 order by city;
+35->select dept,max(sal)from emp group by dept having max(sal)>60000 order by max(sal);
+36->select gender,sum(sal)from emp group by gender having sum(sal)>100000 order by sum(sal);
+37->select dept,count(*)from emp group by dept having count(*)<=4 order by dept asc;
+38->select dept,avg(sal)from emp group by dept order by dept asc,avg(sal) desc;
+39->select job,min(sal) from emp group by job having min(sal)>25000 order by min(sal);
+40->select city,count(*)from emp group by city having count(*)>1 order by count(*)desc;
+
+

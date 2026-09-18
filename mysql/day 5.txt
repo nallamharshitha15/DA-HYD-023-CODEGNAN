@@ -1,0 +1,81 @@
+CREATE TABLE employees (
+emp_id INT PRIMARY KEY,
+emp_name VARCHAR(50),
+department VARCHAR(30),
+job_role VARCHAR(30),
+salary DECIMAL(10,2),
+city VARCHAR(30),
+manager_id INT,
+email VARCHAR(100),
+bonus DECIMAL(10,2)
+);
+INSERT INTO employees
+(emp_id, emp_name, department, job_role, salary, city, manager_id, email, bonus)
+VALUES
+(101, &#39;Ravi&#39;, &#39;IT&#39;, &#39;Developer&#39;, 65000, &#39;Hyderabad&#39;, 201, &#39;ravi@gmail.com&#39;, 5000),
+(102, &#39;Priya&#39;, &#39;HR&#39;, &#39;Manager&#39;, 75000, &#39;Bangalore&#39;, NULL, &#39;priya@gmail.com&#39;, 8000),
+(103, &#39;Arun&#39;, &#39;IT&#39;, &#39;Tester&#39;, 45000, &#39;Chennai&#39;, 201, &#39;arun@gmail.com&#39;, NULL),
+(104, &#39;Sneha&#39;, &#39;Finance&#39;, &#39;Analyst&#39;, 55000, &#39;Hyderabad&#39;, 202, &#39;sneha@gmail.com&#39;, 4000),
+(105, &#39;Kiran&#39;, &#39;IT&#39;, &#39;Developer&#39;, 85000, &#39;Pune&#39;, 201, &#39;kiran@gmail.com&#39;, 10000),
+(106, &#39;Anjali&#39;, &#39;HR&#39;, &#39;Recruiter&#39;, 42000, &#39;Chennai&#39;, 202, NULL, 3000),
+(107, &#39;Vijay&#39;, &#39;Finance&#39;, &#39;Accountant&#39;, 48000, &#39;Bangalore&#39;, 202, &#39;vijay@gmail.com&#39;, NULL),
+(108, &#39;Meena&#39;, &#39;Sales&#39;, &#39;Executive&#39;, 38000, &#39;Hyderabad&#39;, 203, &#39;meena@gmail.com&#39;, 2000),
+(109, &#39;Rahul&#39;, &#39;Sales&#39;, &#39;Manager&#39;, 72000, &#39;Pune&#39;, NULL, &#39;rahul@gmail.com&#39;, 7000),
+(110, &#39;Divya&#39;, &#39;IT&#39;, &#39;Developer&#39;, 60000, &#39;Bangalore&#39;, 201, NULL, 5000),
+(111, &#39;Suresh&#39;, &#39;Finance&#39;, &#39;Analyst&#39;, 52000, &#39;Chennai&#39;, 202, &#39;suresh@gmail.com&#39;, NULL),
+(112, &#39;Pooja&#39;, &#39;HR&#39;, &#39;Executive&#39;, 35000, &#39;Hyderabad&#39;, 102, &#39;pooja@gmail.com&#39;, 1500),
+(113, &#39;Amit&#39;, &#39;IT&#39;, &#39;Support&#39;, 40000, &#39;Pune&#39;, 201, &#39;amit@gmail.com&#39;, NULL),
+(114, &#39;Neha&#39;, &#39;Sales&#39;, &#39;Executive&#39;, 46000, &#39;Bangalore&#39;, 203, NULL, 2500),
+(115, &#39;Raj&#39;, &#39;IT&#39;, &#39;Architect&#39;, 95000, &#39;Hyderabad&#39;, NULL, &#39;raj@gmail.com&#39;, 15000);
+
+Interview Practice – 20 Queries
+Table: employees
+1. Find all employees whose salary is between 40,000 and 60,000.
+2. Find all employees whose salary is outside the range of 50,000 to 80,000.
+3. Find all employees who work in IT, HR, or Finance departments.
+4. Find all employees who do not work in IT, HR, or Sales departments.
+5. Find all employees whose names start with the letter R.
+6. Find all employees whose names end with the letter a.
+7. Find all employees whose names contain the letter i.
+8. Find all employees whose names do not start with the letter A.
+9. Find all employees who do not have an email address.
+10. Find all employees who have an email address.
+11. Find all employees who do not have a manager assigned.
+12. Find all employees who have a manager assigned.
+13. Find employees who work in IT, HR, or Finance and whose salary is between 40,000
+and 70,000.
+14. Find employees who do not work in IT or HR and whose salary is outside the range
+of 40,000 to 70,000.
+15. Find employees whose name starts with R or S and whose salary is greater than
+40,000.
+16. Find employees who work in IT, Finance, or Sales and have a bonus value.
+17. Increase the salary by 10% for IT employees whose salary is less than 60,000.
+18. Set the bonus to 5,000 for employees whose bonus is missing and whose salary is
+greater than 45,000.
+19. Delete employees who work in the Sales department and whose salary is less than
+45,000.
+20. Find employees whose salary is between 45,000 and 90,000, who work in IT,
+Finance, or Sales, whose name contains a, and who have both bonus and email
+details.
+
+
+1->select * from employees where salary between 40,000 and 60,000;
+2->select * from employees where salary not between 50000 and 80000;
+3->select *from employees where in('IT','HR');
+4-> select *from employees where department not in('IT','HR');
+5->select *from employess where emp_name like('R%');
+6->select *from employees where emp_name like('%a');
+7->select *from employees where emp_name like(%i%);
+8->select *from employees where emp_name not like('A%');
+9->select *from employees where email is null;
+10->select *from employees where email is not null;
+11->select *from employees where manager_id is  null;
+12->select *from employees where manager_id is  not null;
+13->select *from employees where department in('IT','HR','Finance') and salary between 40000 and 70000;
+14->select *from employees where department not in('IT','HR') and salary  not between 40000 and 70000;
+15->select *from employees where emp_name like('R%')or emp_name like('S%') and salary>40000;
+16->select * from employees where department in('IT','Finance','Sales') and bonus is not null;
+17->update employees set salary =salary*1.10 where department in('IT') and salary<60000;
+18->update employees set bonus=5000 where bonus is null and salary>45000;
+19->delete from  employees where department in('Sales') and salary<45000;
+20->select* from employees where salary between 45000 and 90000 and work in('IT','Finance','Sales') and name like('%a%')and bonus is not null and email is not null ; 

@@ -1,0 +1,27 @@
+1->Create a table book with columns book_id, title, author, and price. 
+Make book_id the PRIMARY KEY.
+
+->create table book(book_id int primary key,title varchar(20),author varchar(10),price int);
+
+2->Create a table customer with customer_id, customer_name, phone, and email. Apply:
+
+PRIMARY KEY on customer_id
+NOT NULL on customer_name
+UNIQUE on phone
+UNIQUE on email
+
+->create table customer_datails(customer_id int primary key,customer_name varchar(20) NOT NULL,phone bigint UNIQUE,email varchar(20) UNIQUE);
+
+3->Create a table course with course_id, course_name, duration, and fee. Apply:
+
+PRIMARY KEY on course_id
+NOT NULL on course_name
+CHECK that duration > 0
+CHECK that fee >= 1000
+
+->create table course(course_id int primary key,course_name varchar(20) NOT NULL,duration int check(duration>0),fee bigint check(fee>=1000));
+
+4->Create a table student with sid, sname, and age. Later, 
+use ALTER TABLE to add a phone column.
+
+->alter table student add phone bigint;
