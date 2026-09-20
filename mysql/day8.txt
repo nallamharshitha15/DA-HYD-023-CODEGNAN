@@ -1,0 +1,60 @@
+DATE TIME FUNCTIONS;
+
+CREATE TABLE emp1 (
+    emp_id INT PRIMARY KEY AUTO_INCREMENT,
+    emp_name VARCHAR(50),
+    department VARCHAR(30),
+    salary DECIMAL(10,2),
+    joining_date DATE,
+    birth_date DATE
+);
+
+INSERT INTO emp1
+(emp_name, department, salary, joining_date, birth_date)
+VALUES
+('Ravi', 'IT', 55000, '2022-01-15', '1998-05-20'),
+('Priya', 'HR', 48000, '2021-06-10', '1997-08-15'),
+('Arun', 'IT', 72000, '2020-03-25', '1995-12-10'),
+('Sneha', 'Finance', 65000, '2023-02-18', '1999-01-25'),
+('Kiran', 'HR', 52000, '2022-11-05', '1996-07-12'),
+('Anil', 'IT', 60000, '2024-01-20', '2000-03-30'),
+('Divya', 'Finance', 75000, '2019-09-12', '1994-11-18'),
+('Manoj', 'Sales', 45000, '2023-07-01', '1998-02-14'),
+('Pooja', 'Sales', 58000, '2021-12-20', '1997-06-22'),
+('Suresh', 'IT', 68000, '2020-08-30', '1995-10-05');
+
+1.Display the current date and time.
+2.Display only the current date.
+3.Display only the current time.
+4.Display each employee's name and the year in which they joined.
+5.Display each employee's name and joining month number.
+6.Display each employee's name and joining day.
+7.Display each employee's name and the day of the week on which they joined.
+8.Display each employee's name and the number of days they have worked until today.
+9.Display employees who joined more than 1000 days ago.
+10.Display each employee's name, joining date, and the date one year after their joining date.
+11.Display each employee's name and the date 30 days after their joining date.
+12.Display each employee's name and the date 6 months before their joining date.
+13.Display employees who joined within the last 3 years.
+14.Display employee names and joining dates in the format DD-MM-YYYY.
+15.Display employee names and joining dates in the format 15 January 2022.
+16.Convert the string '25-08-2024' into a MySQL date.
+
+
+
+
+1->select now();
+2->select curdate();
+3->select curtime();
+4->select emp_name,year(joining_date)from emp1;
+5->select emp_name,month(joining_date)from emp1;
+6->select emp_name,dayofweek(joining_date)from emp1;
+7->select emp_name,week(joining_date)from emp1;
+8->select emp_name,datediff(curdate(),joining_date)from emp1;
+9->select emp_name,datediff(curdate(),joining_date)from emp1 where datediff(curdate(),joining_date)>1000;
+10->select emp_name,date_add(joining_date,interval 1 year)from emp1; 
+11->select emp_name,date_add(joining_date,interval 30 day)from emp1;
+12->select emp_name,date_sub(joining_date,interval 6 month)from emp1;
+13->select emp_name,date_sub(curdate(),joining_date)from emp1 where date_sub(curdate(),joining_date)<=3;
+
+

@@ -43,3 +43,5 @@
 
 19->  alter table product add chk_product_price int;
   ->alter table product add constraint check_chk_product_price check(chk_product_price>0);
+
+20->  

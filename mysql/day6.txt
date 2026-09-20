@@ -1,0 +1,38 @@
+NULL HANDLING:
+
+CREATE TABLE employee (
+emp_id INT PRIMARY KEY,
+emp_name VARCHAR(50),
+department VARCHAR(30),
+salary DECIMAL(10,2),
+bonus DECIMAL(10,2),
+commission DECIMAL(10,2),
+phone VARCHAR(15)
+);
+
+INSERT INTO employee
+(emp_id, emp_name, department, salary, bonus, commission, phone)
+VALUES
+(101, 'Rahul', 'IT', 55000, 5000, NULL, '9876543210'),
+(102, 'Priya', 'HR', 45000, NULL, 3000, NULL),
+(103, 'Arun', 'Finance', 60000, 7000, NULL, '9876501234'),
+(104, 'Sneha', 'IT', 52000, NULL, 2500, '9123456780'),
+(105, 'Kiran', NULL, 48000, 4000, NULL, NULL),
+(106, 'Anjali', 'Sales', 65000, NULL, 5000, '9988776655'),
+(107, 'Vijay', 'HR', 42000, 3000, NULL, NULL),
+(108, 'Meena', NULL, 58000, NULL, 3500, '9090909090'),
+(109, 'Ravi', 'Finance', 62000, 6000, NULL, NULL),
+(110, 'Divya', 'Sales', 70000, NULL, 6000, '8888888888');
+
+Display the employee name and department. If the department has no value, display 'Not Assigned'.
+Display the employee name and bonus. If the bonus has no value, display 0.
+Display all employees whose phone number has no value.
+Display the employee name and commission. If the commission has no value, display 0.
+Display the employee name, salary, and bonus. Calculate the total amount as salary + bonus, considering a missing bonus as 0.
+Display the employee name and the first available value from bonus and commission. If both have no value, display 0.
+Display all employees whose department has no value.
+Display the employee name and phone number. If the phone number has no value, display 'No Phone'.
+Display the employee name and salary. If the salary is 60000, treat it as having no value.
+Display the employee name and bonus. If the bonus is 5000, treat it as having no value.
+
+->select *from employee where emp_name and department 
