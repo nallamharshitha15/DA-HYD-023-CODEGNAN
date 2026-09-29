@@ -1,0 +1,50 @@
+CREATE TABLE courses (
+    course_id INT PRIMARY KEY,
+    course_name VARCHAR(50),
+    fee INT
+);
+INSERT INTO courses VALUES
+(1, 'Python', 15000),
+(2, 'Data Analytics', 20000),
+(3, 'Java', 18000),
+(4, 'Web Development', 16000),
+(5, 'Cloud Computing', 25000);
+
+CREATE TABLE student2 (
+    student_id INT PRIMARY KEY,
+    student_name VARCHAR(50),
+    course_id INT,
+    FOREIGN KEY (course_id) REFERENCES courses(course_id)
+);
+INSERT INTO student2 VALUES
+(101, 'Rahul', 1),
+(102, 'Priya', 2),
+(103, 'Arjun', 1),
+(104, 'Sneha', 3),
+(105, 'Kiran', NULL),
+(106, 'Divya', 2);
+
+Display the student name and course name.
+Display student name, course name, and fee.
+Display students who are enrolled in Python.
+Display students who are enrolled in Data Analytics.
+Display students whose course fee is greater than ₹18,000.
+Display the course name and student name, sorted by student name.
+
+1->select s.student_name,c.course_name from student2 s inner join courses c on s.course_id=c.course_id;
+2->select s.student_name,c.course_name,c.fee from  student2 s inner join courses c on s.course_id=c.course_id;
+3->select s.student_name,c.course_name from  student2 s inner join courses c on s.course_id=c.course_id where course_name='Python';
+4->select s.student_name,c.course_name from  student2 s inner join courses c on s.course_id=c.course_id where course_name='Data Analytics';
+5->select s.student_name,c.fee from student2 s inner join courses c on s.course_id=c.course_id where fee>18000;
+6->select s.student_name,c.course_name from student2 s inner join courses c on s.course_id=c.course_id order by student_name;
+
+Display all students who have a course.
+Display the number of students enrolled in each course.
+Display the total number of students enrolled in each course.
+Display courses where more than one student is enrolled.
+Display the total fees collected from students for each course.
+Display the course having the highest number of students.
+
+1->select s.student_name,c.course_name from student2 s inner join courses c on s.course_id=c.course_id where course_name is not null;
+2->select count(s.student_id),c.course_name from student2 s inner join courses c on s.course_id=c.course_id group by c.course_id;
+3->

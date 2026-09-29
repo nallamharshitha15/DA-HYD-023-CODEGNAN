@@ -1,0 +1,128 @@
+JOINS:
+
+CREATE TABLE dept (
+    dept_id INT PRIMARY KEY,
+    dept_name VARCHAR(50),
+    location VARCHAR(50)
+);
+
+INSERT INTO dept VALUES
+(10,'HR','Hyderabad'),
+(20,'IT','Bangalore'),
+(30,'Finance','Chennai'),
+(40,'Sales','Mumbai'),
+(50,'Marketing','Pune'),
+(60,'Support','Delhi'),
+(70,'Testing','Kolkata');
+
+CREATE TABLE emp3 (
+    emp_id INT PRIMARY KEY,
+    emp_name VARCHAR(50),
+    salary DECIMAL(10,2),
+    gender VARCHAR(10),
+    dept_id INT,
+    manager_id INT
+);
+
+INSERT INTO emp3 VALUES
+(101,'Rahul',50000,'Male',20,105),
+(102,'Sneha',45000,'Female',10,105),
+(103,'Kiran',60000,'Male',20,105),
+(104,'Anjali',55000,'Female',30,106),
+(105,'Amit',90000,'Male',20,NULL),
+(106,'Priya',85000,'Female',40,NULL),
+(107,'Ravi',40000,'Male',50,106),
+(108,'Meena',70000,'Female',NULL,105),
+(109,'Suresh',48000,'Male',80,106),
+(110,'Divya',62000,'Female',20,105),
+(111,'Vikas',38000,'Male',60,106),
+(112,'Pooja',46000,'Female',10,105);
+
+BASIC:
+
+Display employee names along with their department names.
+Display employee ID, employee name, and department location.
+Display employee name, salary, and department name.
+Display all employees with their department details.
+Display employee names and department locations.
+Display department name and the employees working in it.
+Display employee name and department ID.
+Display employee name, department name, and department location.
+Display employees working in the Sales department.
+Display employees whose department is located in Bangalore.
+
+1->select e.emp_name,d.dept_name from emp3 e inner join dept d on e.dept_id=d.dept_id;
+2->select e.emp_id,e.emp_name,d.location from emp3 e inner join dept d on e.dept_id=d.dept_id;
+3->select e.emp_name,e.salary,d.* from emp3 e inner join dept d on e.dept_id=d.dept_id;
+4->select e.*,d.* from emp3 e left join dept d on e.dept_id=d.dept_id;
+5->select e.emp_name,d.location from emp3 e inner join dept d on e.dept_id=d.dept_id;
+6->select d.dept_name,e.emp_name from dept d inner join emp3 e on d.dept_id=e.dept_id where dept_name='it';
+7->select e.emp_name,d.dept_id from emp3 e inner join dept d on e.dept_id=d.dept_id;
+8->select e.emp_name,d.dept_name,d.location from emp3 e inner join dept d e.dept_id=d.dept_id;
+9->select e.*,d.dept_name from emp3 e inner join dept d on e.dept_id=d.dept_id where dept_name='Sales';
+10->select e.*,d.location from emp3 e inner join dept d on e.dept_id=d.dept_id where d.location='Bangalore'; 
+
+INTERMEDIATE:
+
+Display employees earning more than 50,000 along with their department names.
+Display female employees and their department locations.
+Display employee names and manager name.
+Display employee names along with their manager's salary.
+Display employees whose manager is Amit.
+6.Display employees and their managers who belong to the same department.
+Display employees who do not have a manager.
+Display employees who are not assigned to any department.
+Display departments that currently have no employees.
+Display employees whose department information is unavailable.
+
+1->select e.emp_name,e.salary,d.dept_name from emp3 e inner join dept d on e.dept_id=d.dept_id where salary>50000;
+2->select e.emp_name,e.gender,d.location from emp3 e inner join dept d on e.dept_id=d.dept_id where gender='Female';
+3->select e.emp_name as emp_name,m.emp_name as manager_name from emp3 e left join emp3 m on e.manager_id=m.emp_id;
+4->select e.emp_name as emp_name,m.salary as manager_salary from emp3 e left join emp3 m on e.manager_id=m.emp_id;
+5->select e.emp_name as emp_name,m.emp_name as manager_name from emp3 e left join emp3 m on e.manager_id=m.emp_id where m.emp_name='Amit';
+6->select e.emp_name as emp_name,e.dept_id as emp_id,m.dept_id as manager_dpid from emp3 e  join emp3 m on e.manager_id=m.emp_id where e.dept_id=m.dept_id; 
+7->select e.emp_name,m.emp_name as manager_name from emp3 e  left join emp3 m on e.manager_id=m.emp_id where e.manager_id is  null;
+8->select emp_name from emp3 where dept_id is null;
+9->select d.*,e.emp_name from dept d right join emp3 e on d.dept_id=e.dept_id where e.dept_id is null;
+10->select e.*,d.dept_name from emp3 e left join dept d on e.dept_id=d.dept_id where d.dept_name is null; 
+
+Use the given employee and department tables.
+
+Display the names of employees who work in either the Finance or Sales department.
+Display a combined list containing department names and employee names, including duplicate values if any.
+Find the department IDs that are available in the department table but have no employees assigned to them.
+Find the department IDs that are common to both the employee and department tables.
+Display each employee's name, salary, department name, and location. Ignore employees whose department ID does not exist in the department table.
+Display the employees working in departments located in Hyderabad, Bangalore, or Chennai.
+Display the employee name and manager name for every employee who has a manager.
+Display employees whose salary is greater than their manager's salary.
+Display the department name and employee name where the department ID of both tables is the same.
+Display employees whose salary is between 45,000 and 70,000, along with their department name.
+
+1->select e.emp_name,d.dept_name from emp3 e inner join dept d on e.dept_id=d.dept_id where dept_name in('Sales','Finance');
+2->select e.emp_name from emp3 e  set union all select d.dept_name from dept d
+3->
+
+
+
+Display every employee along with department details wherever available.
+Display every department along with employee details wherever available.
+Display all employees and departments, including records that do not have matching values.
+Display employee name, department name, and manager name.
+Display employee name, employee salary, manager name, and manager salary.
+Display employees whose salary is greater than their manager's salary.
+Display employees working in the same department as Rahul.
+Display pairs of employees who work in the same department.
+Display departments that have more than two employees.
+Display the department that has the highest number of employees.
+
+1->select e.*,d.* from emp3 e inner join dept d on e.dept_id=d.dept_id;
+2->select d.*,e.* from dept d inner join emp3 e on d.dept_id=e.dept_id;
+3->select e.emp_name,d.dept_name,d.dept_location  from emp3 e on e.dept_id=d.dept_id union
+select e.emp_name,d.dept_name,d.dept_location 
+4->select e.emp_name,d.dept_name,m.emp_name as manger_name from emp3 e  join dept d on e.dept_id=d.dept_id
+join emp3 m on e.manager_id=m.emp_id;
+5->select e.emp_name,e.salary,m.emp_name as manager_name,m.salary as manager_salary from emp3 e join emp3 m on e.manager_id=m.emp_id;
+6->select e.emp_name,e.salary,m.emp_name as manager_name,m.salary as manager_salary from emp3 e join emp3 m on e.manager_id=m.emp_id where e.salary>m.salary; 
+7->select e.emp_name,d.dept_name from emp3 e inner join dept d on e.dept_id=d.dept_id where dept_name on('it');
+8->
